@@ -1,0 +1,20 @@
+{
+  "name": "hipcup",
+  "version": "1.0.0",
+  "description": "a cafe locator for those who don't like major coffee chains",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlbernardo/hipcup.git"
+  },
+  "author": "carl bernardo // @carlbernrdo@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/carlbernardo/hipcup/issues"
+  },
+  "homepage": "https://github.com/carlbernardo/hipcup#readme"
+}
