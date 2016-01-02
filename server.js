@@ -1,3 +1,5 @@
+// Does not use because of webpack-dev-server
+
 var express = require('express');
 var path = require('path');
 var app = express();
@@ -8,5 +10,5 @@ app.get('/', function(req, res){
   res.sendFile('index');
 });
 
-app.listen(7890);
-console.log('Listening on port 7890...');
+app.listen(8080);
+console.log('Listening on port 8080...');
