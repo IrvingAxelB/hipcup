@@ -1,7 +1,8 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import { render } from 'react-dom';
+import Example from './components/example.js';
 
-ReactDOM.render(
-  <h4>First component!</h4>,
+render(
+  <Example />,
   document.getElementById('app')
 );
