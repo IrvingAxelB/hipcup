@@ -3,12 +3,12 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: [
-    'babel-polyfill',
-    './client/app.js',
-    'webpack-dev-server/client?http://localhost:8080'
+    // 'babel-polyfill',
+    './client/app.js'
+    // 'webpack-dev-server/client?http://localhost:8080'
   ],
   output: {
-      publicPath: '/',
+      path: __dirname + '/client/components/',
       filename: 'bundle.js'
   },
   debug: true,
@@ -27,6 +27,6 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: "./client"
+    contentBase: './client'
   }
 };
