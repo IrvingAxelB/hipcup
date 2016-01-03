@@ -1,8 +1,9 @@
 import React from 'react';
-import { render } from 'react-dom';
-import Example from './components/example.js';
+import {render} from 'react-dom';
+import Datadisplay from './components/dataDisplay.js';
+import GOOGLE_API_KEY from './../config.js';
 
 render(
-  <Example />,
+  <Datadisplay googleKey={ GOOGLE_API_KEY.url } />,
   document.getElementById('app')
 );
