@@ -19723,7 +19723,6 @@
 	        dataType: 'json',
 	        cache: false,
 	        success: (function (data) {
-	          console.log(data);
 	          this.setState({ shops: data.results });
 	          this.setState({ fetched: true });
 	        }).bind(this),
@@ -19802,8 +19801,11 @@
 	      if (this.props.fetched) {
 	        console.log("data within fetched", this.props.data);
 	        shops = this.props.data.map(function (store, ind) {
-	          console.log("inside map");
-	          return _react2.default.createElement(_shop2.default, { name: store.name, address: store.formatted_address, isOpen: store.opening_hours.open_now, key: ind });
+	          if (store.name !== 'Starbucks' && store.name !== 'Peet\'s Coffee & Tea' && store.name !== 'The Coffee Bean & Tea Leaf') {
+	            return _react2.default.createElement(_shop2.default, { name: store.name, address: store.formatted_address, isOpen: store.opening_hours.open_now, key: ind });
+	          }
+	        }).filter(function (val) {
+	          return val !== undefined;
 	        });
 	      }
 	
@@ -19813,7 +19815,7 @@
 	        _react2.default.createElement(
 	          'h2',
 	          null,
-	          'shopList Component'
+	          'Hip Coffee Places'
 	        ),
 	        shops
 	      );

@@ -20,7 +20,6 @@ class HipcupApp extends React.Component {
       dataType: 'json',
       cache: false,
       success: function(data){
-        console.log(data);
         this.setState({shops: data.results});
         this.setState({fetched: true});
       }.bind(this),

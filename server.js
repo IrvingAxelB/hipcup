@@ -19,7 +19,6 @@ app.get('/', function(req, res, next){
 });
 
 app.get('/google', jsonParser, function(req, res, next){
-  // var deferred = Q.defer();
 
 var apiData = function(){
   var deferred = Q.defer();
