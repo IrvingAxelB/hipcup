@@ -59,11 +59,11 @@
 	
 	var _reactDom = __webpack_require__(159);
 	
-	var _hipcupApp = __webpack_require__(162);
+	var _hipcupApp = __webpack_require__(160);
 	
 	var _hipcupApp2 = _interopRequireDefault(_hipcupApp);
 	
-	var _config = __webpack_require__(161);
+	var _config = __webpack_require__(163);
 	
 	var _config2 = _interopRequireDefault(_config);
 	
@@ -19661,15 +19661,7 @@
 
 
 /***/ },
-/* 160 */,
-/* 161 */
-/***/ function(module, exports) {
-
-	module.exports = {url: 'AIzaSyBa9XzxdfkIpRRk6ahCZB6-f94G_MJ0qL4'};
-
-
-/***/ },
-/* 162 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19684,7 +19676,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _shopList = __webpack_require__(163);
+	var _shopList = __webpack_require__(161);
 	
 	var _shopList2 = _interopRequireDefault(_shopList);
 	
@@ -19753,7 +19745,7 @@
 	exports.default = HipcupApp;
 
 /***/ },
-/* 163 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19768,7 +19760,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _shop = __webpack_require__(164);
+	var _shop = __webpack_require__(162);
 	
 	var _shop2 = _interopRequireDefault(_shop);
 	
@@ -19828,10 +19820,10 @@
 	exports.default = ShopList;
 
 /***/ },
-/* 164 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 	
@@ -19842,6 +19834,10 @@
 	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _map = __webpack_require__(164);
+	
+	var _map2 = _interopRequireDefault(_map);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -19861,33 +19857,34 @@
 	  }
 	
 	  _createClass(Shop, [{
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
 	      console.log("inside shop component");
 	
 	      return _react2.default.createElement(
-	        "div",
+	        'div',
 	        null,
 	        _react2.default.createElement(
-	          "ul",
+	          'ul',
 	          null,
 	          _react2.default.createElement(
-	            "li",
+	            'li',
 	            null,
 	            this.props.name
 	          ),
 	          _react2.default.createElement(
-	            "li",
+	            'li',
 	            null,
 	            this.props.address
 	          ),
 	          _react2.default.createElement(
-	            "li",
+	            'li',
 	            null,
-	            "Open: ",
+	            'Open: ',
 	            JSON.stringify(this.props.isOpen)
 	          )
-	        )
+	        ),
+	        _react2.default.createElement(_map2.default, null)
 	      );
 	    }
 	  }]);
@@ -19896,6 +19893,64 @@
 	})(_react2.default.Component);
 	
 	exports.default = Shop;
+
+/***/ },
+/* 163 */
+/***/ function(module, exports) {
+
+	module.exports = {url: 'AIzaSyBa9XzxdfkIpRRk6ahCZB6-f94G_MJ0qL4'};
+
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Map = (function (_React$Component) {
+	  _inherits(Map, _React$Component);
+	
+	  function Map() {
+	    _classCallCheck(this, Map);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Map).apply(this, arguments));
+	  }
+	
+	  _createClass(Map, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'p',
+	        null,
+	        'Map Component'
+	      );
+	    }
+	  }]);
+	
+	  return Map;
+	})(_react2.default.Component);
+	
+	;
+	
+	exports.default = Map;
 
 /***/ }
 /******/ ]);
