@@ -1,5 +1,6 @@
 import React from 'react';
 import GoogleMap from 'google-map-react';
+import MyGreatPlace from './marker.js';
 
 class Maptest extends React.Component {
   constructor(props){
@@ -13,9 +14,10 @@ class Maptest extends React.Component {
   render() {
     return (
       <GoogleMap
-       bootstrapURLKeys={{key: API_KEY}}
+       bootstrapURLKeys={{key: this.props.googleKey}}
        defaultCenter={this.state.center}
        defaultZoom={this.state.zoom}>
+       <div className="hello" lat={34.0157219} lng={-118.4966245}>MyPlace</div>
      </GoogleMap>
     )
   }
