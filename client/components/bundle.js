@@ -19977,10 +19977,6 @@
 	
 	var _googleMapReact2 = _interopRequireDefault(_googleMapReact);
 	
-	var _marker = __webpack_require__(249);
-	
-	var _marker2 = _interopRequireDefault(_marker);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -20015,7 +20011,7 @@
 	          defaultZoom: this.state.zoom },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'hello', lat: 34.0157219, lng: -118.4966245 },
+	          { style: { border: '1px solid red' }, className: 'hello', lat: 34.0157219, lng: -118.4966245 },
 	          'MyPlace'
 	        )
 	      );
@@ -25020,109 +25016,6 @@
 	
 	module.exports = isNumber;
 
-
-/***/ },
-/* 249 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _markerStyles = __webpack_require__(269);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var MyGreatPlace = (function (_React$Component) {
-	  _inherits(MyGreatPlace, _React$Component);
-	
-	  function MyGreatPlace(props) {
-	    _classCallCheck(this, MyGreatPlace);
-	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(MyGreatPlace).call(this, props));
-	  }
-	
-	  _createClass(MyGreatPlace, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { style: _markerStyles.greatPlaceStyle },
-	        this.props.text
-	      );
-	    }
-	  }]);
-	
-	  return MyGreatPlace;
-	})(_react2.default.Component);
-	
-	exports.default = MyGreatPlace;
-
-/***/ },
-/* 250 */,
-/* 251 */,
-/* 252 */,
-/* 253 */,
-/* 254 */,
-/* 255 */,
-/* 256 */,
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */,
-/* 262 */,
-/* 263 */,
-/* 264 */,
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */,
-/* 269 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var K_WIDTH = 40;
-	var K_HEIGHT = 40;
-	
-	var greatPlaceStyle = {
-	  // initially any map object has left top corner at lat lng coordinates
-	  // it's on you to set object origin to 0,0 coordinates
-	  position: 'absolute',
-	  width: K_WIDTH,
-	  height: K_HEIGHT,
-	  left: -K_WIDTH / 2,
-	  top: -K_HEIGHT / 2,
-	
-	  border: '5px solid #f44336',
-	  borderRadius: K_HEIGHT,
-	  backgroundColor: 'white',
-	  textAlign: 'center',
-	  color: '#3f51b5',
-	  fontSize: 16,
-	  fontWeight: 'bold',
-	  padding: 4
-	};
-	
-	exports.greatPlaceStyle = greatPlaceStyle;
 
 /***/ }
 /******/ ]);
