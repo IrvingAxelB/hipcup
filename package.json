@@ -19,7 +19,10 @@
   "homepage": "https://github.com/carlbernardo/hipcup#readme",
   "dependencies": {
     "babel-polyfill": "^6.3.14",
-    "express": "^4.13.3"
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "q": "^1.4.1",
+    "request": "^2.67.0"
   },
   "devDependencies": {
     "babel-core": "^6.3.26",

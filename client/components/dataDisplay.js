@@ -12,11 +12,13 @@ class Datadisplay extends React.Component {
 
   fetchShops(){
     $.ajax({
-      url: 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=coffee&location=34.0193967,-118.49669&radius=5000&key=AIzaSyBa9XzxdfkIpRRk6ahCZB6-f94G_MJ0qL4',
+      url: 'http://127.0.0.1:8080/google',
       method: 'GET',
+      crossDomain: 'true',
       dataType: 'json',
       cache: false,
       success: function(data){
+        console.log(data);
         this.setState({shops: data});
       }.bind(this),
       error:function(xhr, status, err){
