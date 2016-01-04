@@ -4,7 +4,10 @@ import Shop from './shop.js';
 class ShopList extends React.Component {
   render(){
     return (
-      <h2>shopList Component</h2>
+      <div>
+        <h2>shopList Component</h2>
+        <Shop />
+      </div>
     )
   }
 }

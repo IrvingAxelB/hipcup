@@ -1,5 +1,5 @@
 import React from 'react';
-import Shop from './shopList.js';
+import Shoplist from './shopList.js';
 
 class HipcupApp extends React.Component {
   constructor(props){
@@ -33,7 +33,7 @@ class HipcupApp extends React.Component {
       <div>
         <button onClick={this.fetchShops.bind(this)}>Shops nearby</button>
         <h1>Results:{JSON.stringify(this.state.shops)}</h1>
-        <Shop />
+        <Shoplist />
       </div>
     )
   }

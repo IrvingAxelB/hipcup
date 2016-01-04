@@ -19798,9 +19798,14 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'h2',
+	        'div',
 	        null,
-	        'shopList Component'
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'shopList Component'
+	        ),
+	        _react2.default.createElement(_shop2.default, null)
 	      );
 	    }
 	  }]);
@@ -19815,6 +19820,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -19840,6 +19847,36 @@
 	
 	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Shop).apply(this, arguments));
 	  }
+	
+	  _createClass(Shop, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement('span', null),
+	        _react2.default.createElement(
+	          'ul',
+	          null,
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            'Name'
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            'Address'
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            'Open?'
+	          )
+	        )
+	      );
+	    }
+	  }]);
 	
 	  return Shop;
 	})(_react2.default.Component);
