@@ -1,7 +1,9 @@
 import React from 'react';
 import Shoplist from './shopList.js';
+import Maptest from './mapTest.js';
 
 class HipcupApp extends React.Component {
+
   constructor(props){
     super(props);
     this.state = {
@@ -32,7 +34,8 @@ class HipcupApp extends React.Component {
 
   render(){
     return (
-      <div>
+      <div style={{widht: '100%', height: 400}}>
+        <Maptest />
         <button onClick={this.fetchShops.bind(this)}>Shops nearby</button>
         <Shoplist data={this.state.shops} fetched={this.state.fetched}/>
       </div>
