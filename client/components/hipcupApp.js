@@ -1,6 +1,6 @@
 import React from 'react';
 import Shoplist from './shopList.js';
-import Maptest from './mapExample.js';
+import Map from './map.js';
 
 class HipcupApp extends React.Component {
 
@@ -35,7 +35,7 @@ class HipcupApp extends React.Component {
   render(){
     return (
       <div style={{width: '100%', height: 400}}>
-        <Maptest googleKey={this.props.googleKey}/>
+        <Map googleKey={this.props.googleKey}/>
         <button onClick={this.fetchShops.bind(this)}>Shops nearby</button>
         <Shoplist data={this.state.shops} fetched={this.state.fetched}/>
       </div>
