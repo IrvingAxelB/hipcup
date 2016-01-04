@@ -1,9 +1,8 @@
 import React from 'react';
 
-class Datadisplay extends React.Component {
+class HipcupApp extends React.Component {
   constructor(props){
     super(props);
-    // this.fetchShops = this.fetchShops.bind(this);
     this.state = {
       lat: '',
       lng: '',
@@ -31,11 +30,11 @@ class Datadisplay extends React.Component {
   render(){
     return (
       <div>
-        <p>Here the data:{JSON.stringify(this.state.shops)}</p>
-        <button onClick={this.fetchShops.bind(this)}>Click here for nearby shops</button>
+        <button onClick={this.fetchShops.bind(this)}>Shops nearby</button>
+        <h1>Results:{JSON.stringify(this.state.shops)}</h1>
       </div>
     )
   }
 }
 
-export default Datadisplay;
+export default HipcupApp;

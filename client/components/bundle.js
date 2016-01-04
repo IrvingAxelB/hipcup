@@ -59,9 +59,9 @@
 	
 	var _reactDom = __webpack_require__(159);
 	
-	var _dataDisplay = __webpack_require__(160);
+	var _hipcupApp = __webpack_require__(162);
 	
-	var _dataDisplay2 = _interopRequireDefault(_dataDisplay);
+	var _hipcupApp2 = _interopRequireDefault(_hipcupApp);
 	
 	var _config = __webpack_require__(161);
 	
@@ -69,7 +69,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	(0, _reactDom.render)(_react2.default.createElement(_dataDisplay2.default, { googleKey: _config2.default.url }), document.getElementById('app'));
+	(0, _reactDom.render)(_react2.default.createElement(_hipcupApp2.default, { googleKey: _config2.default.url }), document.getElementById('app'));
 
 /***/ },
 /* 2 */
@@ -19661,7 +19661,15 @@
 
 
 /***/ },
-/* 160 */
+/* 160 */,
+/* 161 */
+/***/ function(module, exports) {
+
+	module.exports = {url: 'AIzaSyBa9XzxdfkIpRRk6ahCZB6-f94G_MJ0qL4'};
+
+
+/***/ },
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19684,15 +19692,13 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var Datadisplay = (function (_React$Component) {
-	  _inherits(Datadisplay, _React$Component);
+	var HipcupApp = (function (_React$Component) {
+	  _inherits(HipcupApp, _React$Component);
 	
-	  function Datadisplay(props) {
-	    _classCallCheck(this, Datadisplay);
+	  function HipcupApp(props) {
+	    _classCallCheck(this, HipcupApp);
 	
-	    // this.fetchShops = this.fetchShops.bind(this);
-	
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Datadisplay).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(HipcupApp).call(this, props));
 	
 	    _this.state = {
 	      lat: '',
@@ -19702,7 +19708,7 @@
 	    return _this;
 	  }
 	
-	  _createClass(Datadisplay, [{
+	  _createClass(HipcupApp, [{
 	    key: 'fetchShops',
 	    value: function fetchShops() {
 	      $.ajax({
@@ -19727,31 +19733,24 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Here the data:',
-	          JSON.stringify(this.state.shops)
-	        ),
-	        _react2.default.createElement(
 	          'button',
 	          { onClick: this.fetchShops.bind(this) },
-	          'Click here for nearby shops'
+	          'Shops nearby'
+	        ),
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Results:',
+	          JSON.stringify(this.state.shops)
 	        )
 	      );
 	    }
 	  }]);
 	
-	  return Datadisplay;
+	  return HipcupApp;
 	})(_react2.default.Component);
 	
-	exports.default = Datadisplay;
-
-/***/ },
-/* 161 */
-/***/ function(module, exports) {
-
-	module.exports = {url: 'AIzaSyBa9XzxdfkIpRRk6ahCZB6-f94G_MJ0qL4'};
-
+	exports.default = HipcupApp;
 
 /***/ }
 /******/ ]);
