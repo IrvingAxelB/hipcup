@@ -19707,7 +19707,8 @@
 	    _this.state = {
 	      lat: '',
 	      lng: '',
-	      shops: ''
+	      shops: '',
+	      fetched: false
 	    };
 	    return _this;
 	  }
@@ -19723,12 +19724,14 @@
 	        cache: false,
 	        success: (function (data) {
 	          console.log(data);
-	          this.setState({ shops: data });
+	          this.setState({ shops: data.results });
 	        }).bind(this),
 	        error: (function (xhr, status, err) {
 	          console.error(err.toString());
 	        }).bind(this)
 	      });
+	
+	      this.setState({ fetched: true });
 	    }
 	  }, {
 	    key: 'render',
@@ -19741,13 +19744,7 @@
 	          { onClick: this.fetchShops.bind(this) },
 	          'Shops nearby'
 	        ),
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Results:',
-	          JSON.stringify(this.state.shops)
-	        ),
-	        _react2.default.createElement(_shopList2.default, null)
+	        _react2.default.createElement(_shopList2.default, { data: this.state.shops, fetched: this.state.fetched })
 	      );
 	    }
 	  }]);
@@ -19797,6 +19794,20 @@
 	  _createClass(ShopList, [{
 	    key: 'render',
 	    value: function render() {
+	      var shops = _react2.default.createElement(
+	        'div',
+	        null,
+	        'Nothing here yet'
+	      );
+	
+	      if (this.props.fetched) {
+	        console.log("data within fetched", this.props.data);
+	        shops = this.props.data.map(function (store, ind) {
+	          console.log("inside map");
+	          return _react2.default.createElement(_shop2.default, { name: store.name, address: store.formatted_address, isOpen: store.opening_hours.open_now, key: ind });
+	        });
+	      }
+	
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -19805,7 +19816,7 @@
 	          null,
 	          'shopList Component'
 	        ),
-	        _react2.default.createElement(_shop2.default, null)
+	        shops
 	      );
 	    }
 	  }]);
@@ -19819,7 +19830,7 @@
 /* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 	
@@ -19849,29 +19860,31 @@
 	  }
 	
 	  _createClass(Shop, [{
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
+	      console.log("inside shop component");
+	
 	      return _react2.default.createElement(
-	        'div',
+	        "div",
 	        null,
-	        _react2.default.createElement('span', null),
 	        _react2.default.createElement(
-	          'ul',
+	          "ul",
 	          null,
 	          _react2.default.createElement(
-	            'li',
+	            "li",
 	            null,
-	            'Name'
+	            this.props.name
 	          ),
 	          _react2.default.createElement(
-	            'li',
+	            "li",
 	            null,
-	            'Address'
+	            this.props.address
 	          ),
 	          _react2.default.createElement(
-	            'li',
+	            "li",
 	            null,
-	            'Open?'
+	            "Open: ",
+	            JSON.stringify(this.props.isOpen)
 	          )
 	        )
 	      );

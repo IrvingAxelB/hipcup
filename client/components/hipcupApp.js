@@ -7,7 +7,8 @@ class HipcupApp extends React.Component {
     this.state = {
       lat: '',
       lng: '',
-      shops: ''
+      shops: '',
+      fetched: false
     }
   }
 
@@ -20,20 +21,21 @@ class HipcupApp extends React.Component {
       cache: false,
       success: function(data){
         console.log(data);
-        this.setState({shops: data});
+        this.setState({shops: data.results});
       }.bind(this),
       error:function(xhr, status, err){
         console.error(err.toString());
       }.bind(this)
     });
+
+    this.setState({fetched: true});
   }
 
   render(){
     return (
       <div>
         <button onClick={this.fetchShops.bind(this)}>Shops nearby</button>
-        <h1>Results:{JSON.stringify(this.state.shops)}</h1>
-        <Shoplist />
+        <Shoplist data={this.state.shops} fetched={this.state.fetched}/>
       </div>
     )
   }
