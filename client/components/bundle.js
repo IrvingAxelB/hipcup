@@ -19725,13 +19725,12 @@
 	        success: (function (data) {
 	          console.log(data);
 	          this.setState({ shops: data.results });
+	          this.setState({ fetched: true });
 	        }).bind(this),
 	        error: (function (xhr, status, err) {
 	          console.error(err.toString());
 	        }).bind(this)
 	      });
-	
-	      this.setState({ fetched: true });
 	    }
 	  }, {
 	    key: 'render',
