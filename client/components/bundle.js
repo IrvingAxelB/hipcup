@@ -19690,6 +19690,8 @@
 	  function Datadisplay(props) {
 	    _classCallCheck(this, Datadisplay);
 	
+	    // this.fetchShops = this.fetchShops.bind(this);
+	
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Datadisplay).call(this, props));
 	
 	    _this.state = {
@@ -19728,11 +19730,11 @@
 	          'p',
 	          null,
 	          'Here the data:',
-	          this.state.shops
+	          JSON.stringify(this.state.shops)
 	        ),
 	        _react2.default.createElement(
 	          'button',
-	          { onClick: this.fetchShops },
+	          { onClick: this.fetchShops.bind(this) },
 	          'Click here for nearby shops'
 	        )
 	      );

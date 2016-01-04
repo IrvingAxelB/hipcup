@@ -3,6 +3,7 @@ import React from 'react';
 class Datadisplay extends React.Component {
   constructor(props){
     super(props);
+    // this.fetchShops = this.fetchShops.bind(this);
     this.state = {
       lat: '',
       lng: '',
@@ -30,8 +31,8 @@ class Datadisplay extends React.Component {
   render(){
     return (
       <div>
-        <p>Here the data:{this.state.shops}</p>
-        <button onClick={this.fetchShops}>Click here for nearby shops</button>
+        <p>Here the data:{JSON.stringify(this.state.shops)}</p>
+        <button onClick={this.fetchShops.bind(this)}>Click here for nearby shops</button>
       </div>
     )
   }
