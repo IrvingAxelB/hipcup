@@ -19734,23 +19734,25 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var buttonInstance = _react2.default.createElement(
-	        _button2.default,
-	        { bsStyle: 'info', onClick: this.fetchShops.bind(this) },
-	        'Find Coffee!'
-	      );
 	
 	      return _react2.default.createElement(
 	        'div',
-	        { style: { width: '100%', height: 400 } },
-	        buttonInstance,
+	        null,
 	        _react2.default.createElement(
-	          'button',
-	          { onClick: this.fetchShops.bind(this) },
-	          'Find me some coffee!'
+	          'div',
+	          { className: 'coffeeFinderButtonWrapper' },
+	          _react2.default.createElement(
+	            _button2.default,
+	            { className: 'coffeeFinderButton', bsStyle: 'info', onClick: this.fetchShops.bind(this) },
+	            'Find Coffee!'
+	          )
 	        ),
-	        _react2.default.createElement(_map2.default, { googleKey: this.props.googleKey, data: this.state.shops, fetched: this.state.fetched }),
-	        _react2.default.createElement(_shopList2.default, { data: this.state.shops, fetched: this.state.fetched })
+	        _react2.default.createElement(
+	          'div',
+	          { style: { width: '100%', height: 400 } },
+	          _react2.default.createElement(_map2.default, { googleKey: this.props.googleKey, data: this.state.shops, fetched: this.state.fetched }),
+	          _react2.default.createElement(_shopList2.default, { data: this.state.shops, fetched: this.state.fetched })
+	        )
 	      );
 	    }
 	  }]);
