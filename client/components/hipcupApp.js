@@ -17,7 +17,7 @@ class HipcupApp extends React.Component {
 
   fetchShops(){
     $.ajax({
-      url: '//127.0.0.1:3468/google',
+      url: '/google',
       method: 'POST',
       crossDomain: 'true',
       dataType: 'json',

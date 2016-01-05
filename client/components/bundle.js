@@ -19719,7 +19719,7 @@
 	    key: 'fetchShops',
 	    value: function fetchShops() {
 	      $.ajax({
-	        url: '//127.0.0.1:3468/google',
+	        url: '/google',
 	        method: 'POST',
 	        crossDomain: 'true',
 	        dataType: 'json',
