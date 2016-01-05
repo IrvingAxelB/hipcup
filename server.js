@@ -25,14 +25,14 @@ app.post('/google', jsonParser, function(req, res, next){
 
     request.post({url:'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyBa9XzxdfkIpRRk6ahCZB6-f94G_MJ0qL4'}, function(err, res, body){
       if(err){
-        console.log("error");
-        deferred.reject("error within googlegeolocation post request");
+        console.log("error:", err);
+        deferred.reject("error within google geolocation POST request");
       }
       if(!err && res.statusCode === 200){
         deferred.resolve(JSON.parse(body))
       }
       else {
-        deferred.reject("node error");
+        deferred.reject("alt error");
       }
     });
 
@@ -48,14 +48,14 @@ app.post('/google', jsonParser, function(req, res, next){
 
     request('https://maps.googleapis.com/maps/api/place/textsearch/json?query=coffee&location='+lat+','+lng+'&radius=5000&key='+apiKey, function(err, res, body){
        if(err){
-         console.log("error");
-         deferred.reject("error within googleplaces get request");
+         console.log("error:", err);
+         deferred.reject("error within googleplaces GET request");
        }
        if(!err && res.statusCode === 200){
          deferred.resolve({stores: JSON.parse(body), lat: lat, lng: lng})
        }
        else {
-         deferred.reject("node error");
+         deferred.reject("alt error");
        }
      });
 
@@ -63,10 +63,8 @@ app.post('/google', jsonParser, function(req, res, next){
   };
 
   apiGeolocationData().then(function(data){
-    console.log(data);
     return apiStoreData(data)
   }).then(function(data){
-    console.log("apistore", data)
     res.send(data);
   });
 

@@ -11,13 +11,6 @@ class Map extends React.Component {
     }
   };
 
-  // componentWillReceiveProps(nextProps) {
-  //   console.log("NEXT:", nextProps)
-  //   this.setState({
-  //     center: {lat: nextProps.latitude, lng: nextProps.longitude}
-  //   });
-  // }
-
   render(){
     let markers = <div lat={34.0157219} lng={-118.4966245}>"WE'RE FINDING YOUR COFFEE SHOP"</div>;
     let map = <GoogleMap

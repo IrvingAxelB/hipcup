@@ -20932,14 +20932,6 @@
 	
 	  _createClass(Map, [{
 	    key: 'render',
-	
-	    // componentWillReceiveProps(nextProps) {
-	    //   console.log("NEXT:", nextProps)
-	    //   this.setState({
-	    //     center: {lat: nextProps.latitude, lng: nextProps.longitude}
-	    //   });
-	    // }
-	
 	    value: function render() {
 	      var markers = _react2.default.createElement(
 	        'div',
