@@ -19944,8 +19944,12 @@
 	  _createClass(Map, [{
 	    key: 'render',
 	    value: function render() {
-	      var markers = '';
-	      // store.geometry.location.lat
+	      //TODO: center around invisible or image
+	      var markers = _react2.default.createElement(
+	        'div',
+	        { lat: 34.0157219, lng: -118.4966245 },
+	        '"one second please"'
+	      );
 	
 	      if (this.props.fetched) {
 	        console.log("inside marker creator");
@@ -19964,11 +19968,8 @@
 	          bootstrapURLKeys: { key: this.props.googleKey },
 	          defaultCenter: this.state.center,
 	          defaultZoom: 13 },
-	        _react2.default.createElement(
-	          'div',
-	          { style: { border: '1px solid red' }, className: 'hello', lat: 34.0157219, lng: -118.4966245 },
-	          'MyPlace'
-	        ),
+	        markers,
+	        _react2.default.createElement(_mapMarker2.default, { lat: 34.0157219, lng: -118.4966245 }),
 	        _react2.default.createElement(_mapMarker2.default, { lat: 34.032773, lng: -118.452798 })
 	      );
 	    }
