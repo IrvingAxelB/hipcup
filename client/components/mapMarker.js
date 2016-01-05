@@ -2,8 +2,12 @@ import React from 'react';
 
 class Mapmarker extends React.Component {
   render(){
+    let imgSrc = './../assets/Chemex.png'
+
     return (
-      <div>TestING</div>
+      <div>
+        <img src={imgSrc} />
+      </div>
     )
   }
 }

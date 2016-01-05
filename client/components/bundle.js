@@ -25024,10 +25024,12 @@
 	  _createClass(Mapmarker, [{
 	    key: 'render',
 	    value: function render() {
+	      var imgSrc = './../assets/Chemex.png';
+	
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        'TestING'
+	        _react2.default.createElement('img', { src: imgSrc })
 	      );
 	    }
 	  }]);
