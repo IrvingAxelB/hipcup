@@ -19718,11 +19718,12 @@
 	    value: function fetchShops() {
 	      $.ajax({
 	        url: 'http://127.0.0.1:8080/google',
-	        method: 'GET',
+	        method: 'POST',
 	        crossDomain: 'true',
 	        dataType: 'json',
 	        cache: false,
 	        success: (function (data) {
+	          console.log("success", data);
 	          this.setState({ shops: data.results });
 	          this.setState({ fetched: true });
 	        }).bind(this),
@@ -19730,6 +19731,21 @@
 	          console.error(err.toString());
 	        }).bind(this)
 	      });
+	
+	      // $.ajax({
+	      //   url: 'http://127.0.0.1:8080/google',
+	      //   method: 'GET',
+	      //   crossDomain: 'true',
+	      //   dataType: 'json',
+	      //   cache: false,
+	      //   success: function(data){
+	      //     this.setState({shops: data.results});
+	      //     this.setState({fetched: true});
+	      //   }.bind(this),
+	      //   error:function(xhr, status, err){
+	      //     console.error(err.toString());
+	      //   }.bind(this)
+	      // });
 	    }
 	  }, {
 	    key: 'render',

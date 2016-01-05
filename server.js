@@ -18,31 +18,58 @@ app.get('/', function(req, res, next){
   res.sendFile(path.join(__dirname, './client/index.html'));
 });
 
-app.get('/google', jsonParser, function(req, res, next){
+app.post('/google', jsonParser, function(req, res, next){
 
-var apiData = function(){
-  var deferred = Q.defer();
+  var apiGeolocationData = function(){
+    var deferred = Q.defer();
 
-  request('https://maps.googleapis.com/maps/api/place/textsearch/json?query=coffee&location=34.0193967,-118.49669&radius=5000&key=AIzaSyBa9XzxdfkIpRRk6ahCZB6-f94G_MJ0qL4', function(err, res, body){
-     if(err){
-       console.log("error");
-       deferred.reject("error within google api get request");
-     }
-     if(!err && res.statusCode === 200){
-       deferred.resolve(JSON.parse(body))
-     }
-     else {
-       deferred.reject("node error");
-     }
-   });
+    request.post({url:'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyBa9XzxdfkIpRRk6ahCZB6-f94G_MJ0qL4'}, function(err, res, body){
+      if(err){
+        console.log("error");
+        deferred.reject("error within googlegeolocation post request");
+      }
+      if(!err && res.statusCode === 200){
+        deferred.resolve(JSON.parse(body))
+      }
+      else {
+        deferred.reject("node error");
+      }
+    });
 
-   console.log("deferred promise", deferred.promise);
-   return deferred.promise;
-};
+    return deferred.promise;
+  };
 
-  apiData().then(function(data){
+  var apiStoreData = function(data){
+    console.log("DATA IN API STORE DATA", data);
+
+    var deferred = Q.defer();
+
+    request('https://maps.googleapis.com/maps/api/place/textsearch/json?query=coffee&location=34.0193967,-118.49669&radius=5000&key=AIzaSyBa9XzxdfkIpRRk6ahCZB6-f94G_MJ0qL4', function(err, res, body){
+       if(err){
+         console.log("error");
+         deferred.reject("error within googleplaces get request");
+       }
+       if(!err && res.statusCode === 200){
+         deferred.resolve(JSON.parse(body))
+       }
+       else {
+         deferred.reject("node error");
+       }
+     });
+
+     return deferred.promise;
+  };
+
+  apiGeolocationData().then(function(data){
+    console.log(data);
+    return apiStoreData(data)
+  }).then(function(data){
     res.send(data);
   });
+
+  // .apiStoreData().then(function(data){
+  //   res.send(data);
+  // });
 });
 
 app.use(express.static(path.join(__dirname, './client')));
