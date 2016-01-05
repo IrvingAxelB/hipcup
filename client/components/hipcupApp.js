@@ -35,8 +35,8 @@ class HipcupApp extends React.Component {
   render(){
     return (
       <div style={{width: '100%', height: 400}}>
-        <Map googleKey={this.props.googleKey}/>
-        <button onClick={this.fetchShops.bind(this)}>Shops nearby</button>
+        <button onClick={this.fetchShops.bind(this)}>Find me some coffee!</button>
+        <Map googleKey={this.props.googleKey} data={this.state.shops} fetched={this.state.fetched}/>
         <Shoplist data={this.state.shops} fetched={this.state.fetched}/>
       </div>
     )

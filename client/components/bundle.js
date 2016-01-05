@@ -19733,12 +19733,12 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { style: { width: '100%', height: 400 } },
-	        _react2.default.createElement(_map2.default, { googleKey: this.props.googleKey }),
 	        _react2.default.createElement(
 	          'button',
 	          { onClick: this.fetchShops.bind(this) },
-	          'Shops nearby'
+	          'Find me some coffee!'
 	        ),
+	        _react2.default.createElement(_map2.default, { googleKey: this.props.googleKey, data: this.state.shops, fetched: this.state.fetched }),
 	        _react2.default.createElement(_shopList2.default, { data: this.state.shops, fetched: this.state.fetched })
 	      );
 	    }
@@ -19935,8 +19935,8 @@
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Map).call(this, props));
 	
 	    _this.state = {
-	      center: { lat: 34.0157219, lng: -118.4966245 },
-	      zoom: 13
+	      // TODO: center should be geolcoated where you are
+	      center: { lat: 34.0157219, lng: -118.4966245 }
 	    };
 	    return _this;
 	  }
@@ -19944,12 +19944,26 @@
 	  _createClass(Map, [{
 	    key: 'render',
 	    value: function render() {
+	      var markers = '';
+	      // store.geometry.location.lat
+	
+	      if (this.props.fetched) {
+	        console.log("inside marker creator");
+	        markers = this.props.data.map(function (store, ind) {
+	          if (store.name !== 'Starbucks' && store.name !== 'Peet\'s Coffee & Tea' && store.name !== 'The Coffee Bean & Tea Leaf') {
+	            return _react2.default.createElement(_mapMarker2.default, { lat: 34.032773, lng: -118.4966245, key: ind });
+	          }
+	        }).filter(function (val) {
+	          return val !== undefined;
+	        });
+	      }
+	
 	      return _react2.default.createElement(
 	        _googleMapReact2.default,
 	        {
 	          bootstrapURLKeys: { key: this.props.googleKey },
 	          defaultCenter: this.state.center,
-	          defaultZoom: this.state.zoom },
+	          defaultZoom: 13 },
 	        _react2.default.createElement(
 	          'div',
 	          { style: { border: '1px solid red' }, className: 'hello', lat: 34.0157219, lng: -118.4966245 },
