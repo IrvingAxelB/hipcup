@@ -19723,7 +19723,6 @@
 	        dataType: 'json',
 	        cache: false,
 	        success: (function (data) {
-	          console.log("DATA", data.stores.results);
 	          this.setState({ shops: data.stores.results });
 	          this.setState({ lat: data.lat });
 	          this.setState({ lng: data.lng });
@@ -20933,11 +20932,7 @@
 	  _createClass(Map, [{
 	    key: 'render',
 	    value: function render() {
-	      var markers = _react2.default.createElement(
-	        'div',
-	        { lat: 34.0157219, lng: -118.4966245 },
-	        '"WE\'RE FINDING YOUR COFFEE SHOP"'
-	      );
+	      var markers = _react2.default.createElement('div', { lat: 34.0157219, lng: -118.4966245 });
 	      var map = _react2.default.createElement(
 	        _googleMapReact2.default,
 	        {
@@ -20977,6 +20972,8 @@
 	
 	  return Map;
 	})(_react2.default.Component);
+	
+	;
 	
 	exports.default = Map;
 

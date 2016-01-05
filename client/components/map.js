@@ -12,7 +12,7 @@ class Map extends React.Component {
   };
 
   render(){
-    let markers = <div lat={34.0157219} lng={-118.4966245}>"WE'RE FINDING YOUR COFFEE SHOP"</div>;
+    let markers = <div lat={34.0157219} lng={-118.4966245}></div>;
     let map = <GoogleMap
      bootstrapURLKeys={{key: this.props.googleKey}}
      defaultCenter={this.state.center}
@@ -42,6 +42,6 @@ class Map extends React.Component {
       </div>
     )
   }
-}
+};
 
-export default Map
+export default Map;

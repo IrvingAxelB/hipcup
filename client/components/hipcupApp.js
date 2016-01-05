@@ -23,7 +23,6 @@ class HipcupApp extends React.Component {
       dataType: 'json',
       cache: false,
       success: function(data){
-        console.log("DATA", data.stores.results)
         this.setState({shops: data.stores.results});
         this.setState({lat: data.lat});
         this.setState({lng: data.lng});
