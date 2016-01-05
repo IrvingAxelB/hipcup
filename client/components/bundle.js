@@ -19752,7 +19752,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { style: { width: '100%', height: 400 } },
+	          null,
 	          _react2.default.createElement(_map2.default, { googleKey: this.props.googleKey, latitude: this.state.lat, longitude: this.state.lng, data: this.state.shops, fetched: this.state.fetched }),
 	          _react2.default.createElement(_shopList2.default, { data: this.state.shops, fetched: this.state.fetched })
 	        )
@@ -20932,11 +20932,27 @@
 	
 	  _createClass(Map, [{
 	    key: 'render',
+	
+	    // componentWillReceiveProps(nextProps) {
+	    //   console.log("NEXT:", nextProps)
+	    //   this.setState({
+	    //     center: {lat: nextProps.latitude, lng: nextProps.longitude}
+	    //   });
+	    // }
+	
 	    value: function render() {
 	      var markers = _react2.default.createElement(
 	        'div',
 	        { lat: 34.0157219, lng: -118.4966245 },
 	        '"WE\'RE FINDING YOUR COFFEE SHOP"'
+	      );
+	      var map = _react2.default.createElement(
+	        _googleMapReact2.default,
+	        {
+	          bootstrapURLKeys: { key: this.props.googleKey },
+	          defaultCenter: this.state.center,
+	          defaultZoom: 13 },
+	        markers
 	      );
 	
 	      if (this.props.fetched) {
@@ -20947,23 +20963,22 @@
 	        }).filter(function (val) {
 	          return val !== undefined;
 	        });
+	
+	        map = _react2.default.createElement(
+	          _googleMapReact2.default,
+	          {
+	            bootstrapURLKeys: { key: this.props.googleKey },
+	            defaultCenter: this.state.center,
+	            defaultZoom: 13,
+	            center: { lat: this.props.latitude, lng: this.props.longitude } },
+	          markers
+	        );
 	      }
 	
 	      return _react2.default.createElement(
-	        _googleMapReact2.default,
-	        {
-	          bootstrapURLKeys: { key: this.props.googleKey },
-	          defaultCenter: this.state.center,
-	          defaultZoom: 13 },
-	        _react2.default.createElement(
-	          'div',
-	          { lat: 34.0157219, lng: -118.4966245 },
-	          '"three second please" "LAT"',
-	          this.props.latitude,
-	          ' / "LONG:"',
-	          this.props.longitude
-	        ),
-	        markers
+	        'div',
+	        { style: { width: '100%', height: 400 } },
+	        map
 	      );
 	    }
 	  }]);

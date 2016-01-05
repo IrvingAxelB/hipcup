@@ -42,7 +42,7 @@ class HipcupApp extends React.Component {
         <div className="coffeeFinderButtonWrapper">
           <Button className="coffeeFinderButton" bsStyle="info" onClick={this.fetchShops.bind(this)}>Find Coffee!</Button>
         </div>
-        <div style={{width: '100%', height: 400}}>
+        <div>
           <Map googleKey={this.props.googleKey} latitude={this.state.lat}  longitude={this.state.lng} data={this.state.shops} fetched={this.state.fetched}/>
           <Shoplist data={this.state.shops} fetched={this.state.fetched}/>
         </div>
