@@ -13,6 +13,7 @@ app.use(function(req, res, next){
 });
 
 var jsonParser = bodyParser.json();
+var port = process.env.PORT || 3468;
 
 app.get('/', function(req, res, next){
   res.sendFile(path.join(__dirname, './client/index.html'));
@@ -72,5 +73,5 @@ app.post('/google', jsonParser, function(req, res, next){
 
 app.use(express.static(path.join(__dirname, './client')));
 
-app.listen(8080);
-console.log('Listening on port 8080...');
+app.listen(port);
+console.log('Listening on port ' + port + '...');
