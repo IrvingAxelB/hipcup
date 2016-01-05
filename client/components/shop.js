@@ -6,8 +6,8 @@ class Shop extends React.Component {
 
     return(
       <div>
-        <ul>
-          <li>{this.props.name}</li>
+        <ul className="store">
+          <li><span className="storeName">{this.props.name}</span></li>
           <li>{this.props.address}</li>
           <li>Open: {JSON.stringify(this.props.isOpen)}</li>
         </ul>

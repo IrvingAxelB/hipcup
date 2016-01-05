@@ -21,3 +21,23 @@
   display: block;
   margin: 0 auto;
 }
+
+.results{
+  display:block;
+  margin: 0 auto;
+}
+
+.listResultsTitle{
+  font-size: 120px;
+  text-align: center;
+}
+
+.store{
+  text-align: center;
+  list-style-type: none;
+}
+
+.storeName{
+  font-size: 20px;
+  font-weight: bold;
+}

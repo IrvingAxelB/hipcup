@@ -19802,14 +19802,10 @@
 	  _createClass(ShopList, [{
 	    key: 'render',
 	    value: function render() {
-	      var shops = _react2.default.createElement(
-	        'div',
-	        null,
-	        'Nothing here yet'
-	      );
+	      var shops = _react2.default.createElement('div', null);
 	
 	      if (this.props.fetched) {
-	        console.log("data within fetched", this.props.data);
+	        console.log('data within fetched', this.props.data);
 	        shops = this.props.data.map(function (store, ind) {
 	          if (store.name !== 'Starbucks' && store.name !== 'Peet\'s Coffee & Tea' && store.name !== 'The Coffee Bean & Tea Leaf') {
 	            return _react2.default.createElement(_shop2.default, { name: store.name, address: store.formatted_address, isOpen: store.opening_hours.open_now, key: ind });
@@ -19821,13 +19817,17 @@
 	
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'results' },
 	        _react2.default.createElement(
 	          'h2',
-	          null,
+	          { className: 'listResultsTitle' },
 	          'Hip Coffee Places'
 	        ),
-	        shops
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          shops
+	        )
 	      );
 	    }
 	  }]);
@@ -19880,11 +19880,15 @@
 	        null,
 	        _react2.default.createElement(
 	          "ul",
-	          null,
+	          { className: "store" },
 	          _react2.default.createElement(
 	            "li",
 	            null,
-	            this.props.name
+	            _react2.default.createElement(
+	              "span",
+	              { className: "storeName" },
+	              this.props.name
+	            )
 	          ),
 	          _react2.default.createElement(
 	            "li",
