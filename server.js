@@ -66,6 +66,7 @@ app.post('/google', jsonParser, function(req, res, next){
     console.log(data);
     return apiStoreData(data)
   }).then(function(data){
+    console.log("apistore", data)
     res.send(data);
   });
 
