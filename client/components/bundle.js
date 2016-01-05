@@ -65,11 +65,13 @@
 	
 	var _config = __webpack_require__(279);
 	
-	var _config2 = _interopRequireDefault(_config);
+	var keys = _interopRequireWildcard(_config);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	(0, _reactDom.render)(_react2.default.createElement(_hipcupApp2.default, { googleKey: _config2.default.url }), document.getElementById('app'));
+	(0, _reactDom.render)(_react2.default.createElement(_hipcupApp2.default, { googleKey: keys.google_api_key }), document.getElementById('app'));
 
 /***/ },
 /* 2 */
@@ -26026,7 +26028,9 @@
 /* 279 */
 /***/ function(module, exports) {
 
-	module.exports = {url: 'AIzaSyBa9XzxdfkIpRRk6ahCZB6-f94G_MJ0qL4'};
+	module.exports = {
+	  google_api_key: 'AIzaSyBa9XzxdfkIpRRk6ahCZB6-f94G_MJ0qL4'
+	};
 
 
 /***/ }

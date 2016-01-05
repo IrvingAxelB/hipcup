@@ -3,6 +3,8 @@ var path = require('path');
 var request = require('request');
 var bodyParser = require('body-parser');
 var Q = require('q');
+var google_api_key = require('./config.js').google_api_key;
+
 var app = express();
 
 app.use(function(req, res, next){
@@ -24,7 +26,7 @@ app.post('/google', jsonParser, function(req, res, next){
   var apiGeolocationData = function(){
     var deferred = Q.defer();
 
-    request.post({url:'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyBa9XzxdfkIpRRk6ahCZB6-f94G_MJ0qL4'}, function(err, res, body){
+    request.post({url:'https://www.googleapis.com/geolocation/v1/geolocate?key='+google_api_key}, function(err, res, body){
       if(err){
         console.log("error:", err);
         deferred.reject("error within google geolocation POST request");
@@ -43,11 +45,10 @@ app.post('/google', jsonParser, function(req, res, next){
   var apiStoreData = function(data){
     var lat = data.location.lat;
     var lng = data.location.lng;
-    var apiKey = 'AIzaSyBa9XzxdfkIpRRk6ahCZB6-f94G_MJ0qL4';
 
     var deferred = Q.defer();
 
-    request('https://maps.googleapis.com/maps/api/place/textsearch/json?query=coffee&location='+lat+','+lng+'&radius=5000&key='+apiKey, function(err, res, body){
+    request('https://maps.googleapis.com/maps/api/place/textsearch/json?query=coffee&location='+lat+','+lng+'&radius=5000&key='+google_api_key, function(err, res, body){
        if(err){
          console.log("error:", err);
          deferred.reject("error within googleplaces GET request");
