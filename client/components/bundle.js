@@ -19723,29 +19723,14 @@
 	        dataType: 'json',
 	        cache: false,
 	        success: (function (data) {
-	          console.log("success", data);
-	          this.setState({ shops: data.results });
+	          console.log("NEWDATA:", data);
+	          this.setState({ shops: data.stores.results });
 	          this.setState({ fetched: true });
 	        }).bind(this),
 	        error: (function (xhr, status, err) {
 	          console.error(err.toString());
 	        }).bind(this)
 	      });
-	
-	      // $.ajax({
-	      //   url: 'http://127.0.0.1:8080/google',
-	      //   method: 'GET',
-	      //   crossDomain: 'true',
-	      //   dataType: 'json',
-	      //   cache: false,
-	      //   success: function(data){
-	      //     this.setState({shops: data.results});
-	      //     this.setState({fetched: true});
-	      //   }.bind(this),
-	      //   error:function(xhr, status, err){
-	      //     console.error(err.toString());
-	      //   }.bind(this)
-	      // });
 	    }
 	  }, {
 	    key: 'render',
@@ -19821,7 +19806,6 @@
 	      var shops = _react2.default.createElement('div', null);
 	
 	      if (this.props.fetched) {
-	        console.log('data within fetched', this.props.data);
 	        shops = this.props.data.map(function (store, ind) {
 	          if (store.name !== 'Starbucks' && store.name !== 'Peet\'s Coffee & Tea' && store.name !== 'The Coffee Bean & Tea Leaf') {
 	            return _react2.default.createElement(_shop2.default, { name: store.name, address: store.formatted_address, isOpen: store.opening_hours.open_now, key: ind });
@@ -19889,7 +19873,6 @@
 	  _createClass(Shop, [{
 	    key: "render",
 	    value: function render() {
-	      console.log("inside shop component");
 	
 	      return _react2.default.createElement(
 	        "div",
@@ -19985,7 +19968,6 @@
 	      );
 	
 	      if (this.props.fetched) {
-	        console.log("inside marker creator");
 	        markers = this.props.data.map(function (store, ind) {
 	          if (store.name !== 'Starbucks' && store.name !== 'Peet\'s Coffee & Tea' && store.name !== 'The Coffee Bean & Tea Leaf') {
 	            return _react2.default.createElement(_mapMarker2.default, { lat: store.geometry.location.lat, lng: store.geometry.location.lng, key: ind });

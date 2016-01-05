@@ -2,7 +2,6 @@ import React from 'react';
 
 class Shop extends React.Component {
   render(){
-    console.log("inside shop component");
 
     return(
       <div>

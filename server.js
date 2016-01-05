@@ -40,17 +40,19 @@ app.post('/google', jsonParser, function(req, res, next){
   };
 
   var apiStoreData = function(data){
-    console.log("DATA IN API STORE DATA", data);
+    var lat = data.location.lat;
+    var lng = data.location.lng;
+    var apiKey = 'AIzaSyBa9XzxdfkIpRRk6ahCZB6-f94G_MJ0qL4';
 
     var deferred = Q.defer();
 
-    request('https://maps.googleapis.com/maps/api/place/textsearch/json?query=coffee&location=34.0193967,-118.49669&radius=5000&key=AIzaSyBa9XzxdfkIpRRk6ahCZB6-f94G_MJ0qL4', function(err, res, body){
+    request('https://maps.googleapis.com/maps/api/place/textsearch/json?query=coffee&location='+lat+','+lng+'&radius=5000&key='+apiKey, function(err, res, body){
        if(err){
          console.log("error");
          deferred.reject("error within googleplaces get request");
        }
        if(!err && res.statusCode === 200){
-         deferred.resolve(JSON.parse(body))
+         deferred.resolve({stores: JSON.parse(body), lat: lat, lng: lng})
        }
        else {
          deferred.reject("node error");
@@ -67,9 +69,6 @@ app.post('/google', jsonParser, function(req, res, next){
     res.send(data);
   });
 
-  // .apiStoreData().then(function(data){
-  //   res.send(data);
-  // });
 });
 
 app.use(express.static(path.join(__dirname, './client')));

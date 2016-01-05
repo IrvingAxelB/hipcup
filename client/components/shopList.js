@@ -6,7 +6,6 @@ class ShopList extends React.Component {
     let shops = <div></div>
 
     if(this.props.fetched){
-      console.log('data within fetched', this.props.data);
       shops = this.props.data.map((store, ind) => {
         if(store.name !== 'Starbucks' && store.name !== 'Peet\'s Coffee & Tea' && store.name !== 'The Coffee Bean & Tea Leaf'){
           return (<Shop name={store.name} address={store.formatted_address}  isOpen={store.opening_hours.open_now} key={ind}/>)

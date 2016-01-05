@@ -16,7 +16,6 @@ class Map extends React.Component {
     let markers = <div lat={34.0157219} lng={-118.4966245}>"one second please"</div>;
 
     if(this.props.fetched){
-      console.log("inside marker creator")
       markers = this.props.data.map((store, ind) => {
         if(store.name !== 'Starbucks' && store.name !== 'Peet\'s Coffee & Tea' && store.name !== 'The Coffee Bean & Tea Leaf'){
           return (<Mapmarker lat={store.geometry.location.lat} lng={store.geometry.location.lng} key={ind}/>)
