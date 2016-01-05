@@ -19955,7 +19955,7 @@
 	        console.log("inside marker creator");
 	        markers = this.props.data.map(function (store, ind) {
 	          if (store.name !== 'Starbucks' && store.name !== 'Peet\'s Coffee & Tea' && store.name !== 'The Coffee Bean & Tea Leaf') {
-	            return _react2.default.createElement(_mapMarker2.default, { lat: 34.032773, lng: -118.4966245, key: ind });
+	            return _react2.default.createElement(_mapMarker2.default, { lat: store.geometry.location.lat, lng: store.geometry.location.lng, key: ind });
 	          }
 	        }).filter(function (val) {
 	          return val !== undefined;
@@ -19968,9 +19968,7 @@
 	          bootstrapURLKeys: { key: this.props.googleKey },
 	          defaultCenter: this.state.center,
 	          defaultZoom: 13 },
-	        markers,
-	        _react2.default.createElement(_mapMarker2.default, { lat: 34.0157219, lng: -118.4966245 }),
-	        _react2.default.createElement(_mapMarker2.default, { lat: 34.032773, lng: -118.452798 })
+	        markers
 	      );
 	    }
 	  }]);

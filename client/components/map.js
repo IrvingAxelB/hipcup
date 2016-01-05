@@ -19,7 +19,7 @@ class Map extends React.Component {
       console.log("inside marker creator")
       markers = this.props.data.map((store, ind) => {
         if(store.name !== 'Starbucks' && store.name !== 'Peet\'s Coffee & Tea' && store.name !== 'The Coffee Bean & Tea Leaf'){
-          return (<Mapmarker lat={34.032773} lng={-118.4966245} key={ind}/>)
+          return (<Mapmarker lat={store.geometry.location.lat} lng={store.geometry.location.lng} key={ind}/>)
         }
       }).filter(val => val !== undefined);
     }
@@ -30,8 +30,6 @@ class Map extends React.Component {
        defaultCenter={this.state.center}
        defaultZoom={13}>
         {markers}
-        <Mapmarker lat={34.0157219} lng={-118.4966245} />
-        <Mapmarker lat={34.032773} lng={-118.452798}/>
      </GoogleMap>
     )
   }
