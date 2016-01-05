@@ -7,8 +7,8 @@ class ShopList extends React.Component {
 
     if(this.props.fetched){
       shops = this.props.data.map((store, ind) => {
-        if(store.name !== 'Starbucks' && store.name !== 'Peet\'s Coffee & Tea' && store.name !== 'The Coffee Bean & Tea Leaf'){
-          return (<Shop name={store.name} address={store.formatted_address}  isOpen={store.opening_hours.open_now} key={ind}/>)
+        if(store.name !== 'Starbucks' && store.name !== 'Peet\'s Coffee & Tea' && store.name !== 'The Coffee Bean & Tea Leaf' && store.opening_hours){
+          return (<Shop name={store.name} address={store.formatted_address} isOpen={store.opening_hours.open_now} key={ind}/>)
         }
       }).filter(val => val !== undefined);
     }
