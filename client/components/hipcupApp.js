@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'react-bootstrap/lib/button.js'
 import Shoplist from './shopList.js';
 import Map from './map.js';
 
@@ -33,8 +34,13 @@ class HipcupApp extends React.Component {
   }
 
   render(){
+    const buttonInstance = (
+      <Button bsStyle="info" onClick={this.fetchShops.bind(this)}>Find Coffee!</Button>
+    )
+
     return (
       <div style={{width: '100%', height: 400}}>
+        {buttonInstance}
         <button onClick={this.fetchShops.bind(this)}>Find me some coffee!</button>
         <Map googleKey={this.props.googleKey} data={this.state.shops} fetched={this.state.fetched}/>
         <Shoplist data={this.state.shops} fetched={this.state.fetched}/>

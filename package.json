@@ -23,6 +23,7 @@
     "express": "^4.13.3",
     "google-map-react": "^0.9.3",
     "q": "^1.4.1",
+    "react-bootstrap": "^0.28.1",
     "request": "^2.67.0"
   },
   "devDependencies": {
