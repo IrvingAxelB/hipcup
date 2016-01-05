@@ -19723,8 +19723,9 @@
 	        dataType: 'json',
 	        cache: false,
 	        success: (function (data) {
-	          console.log("NEWDATA:", data);
 	          this.setState({ shops: data.stores.results });
+	          this.setState({ lat: data.lat });
+	          this.setState({ lng: data.lng });
 	          this.setState({ fetched: true });
 	        }).bind(this),
 	        error: (function (xhr, status, err) {
@@ -19751,7 +19752,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { style: { width: '100%', height: 400 } },
-	          _react2.default.createElement(_map2.default, { googleKey: this.props.googleKey, data: this.state.shops, fetched: this.state.fetched }),
+	          _react2.default.createElement(_map2.default, { googleKey: this.props.googleKey, latitude: this.state.lat, longitude: this.state.lng, data: this.state.shops, fetched: this.state.fetched }),
 	          _react2.default.createElement(_shopList2.default, { data: this.state.shops, fetched: this.state.fetched })
 	        )
 	      );
@@ -19951,7 +19952,6 @@
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Map).call(this, props));
 	
 	    _this.state = {
-	      // TODO: center should be geolcoated where you are
 	      center: { lat: 34.0157219, lng: -118.4966245 }
 	    };
 	    return _this;
@@ -19960,11 +19960,10 @@
 	  _createClass(Map, [{
 	    key: 'render',
 	    value: function render() {
-	      //TODO: center around invisible or image
 	      var markers = _react2.default.createElement(
 	        'div',
 	        { lat: 34.0157219, lng: -118.4966245 },
-	        '"one second please"'
+	        '"WE\'RE FINDING YOUR COFFEE SHOP"'
 	      );
 	
 	      if (this.props.fetched) {
@@ -19983,6 +19982,14 @@
 	          bootstrapURLKeys: { key: this.props.googleKey },
 	          defaultCenter: this.state.center,
 	          defaultZoom: 13 },
+	        _react2.default.createElement(
+	          'div',
+	          { lat: 34.0157219, lng: -118.4966245 },
+	          '"three second please" "LAT"',
+	          this.props.latitude,
+	          ' / "LONG:"',
+	          this.props.longitude
+	        ),
 	        markers
 	      );
 	    }

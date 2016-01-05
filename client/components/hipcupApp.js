@@ -23,8 +23,9 @@ class HipcupApp extends React.Component {
       dataType: 'json',
       cache: false,
       success: function(data){
-        console.log("NEWDATA:", data)
         this.setState({shops: data.stores.results});
+        this.setState({lat: data.lat});
+        this.setState({lng: data.lng});
         this.setState({fetched: true});
       }.bind(this),
       error:function(xhr, status, err){
@@ -41,7 +42,7 @@ class HipcupApp extends React.Component {
           <Button className="coffeeFinderButton" bsStyle="info" onClick={this.fetchShops.bind(this)}>Find Coffee!</Button>
         </div>
         <div style={{width: '100%', height: 400}}>
-          <Map googleKey={this.props.googleKey} data={this.state.shops} fetched={this.state.fetched}/>
+          <Map googleKey={this.props.googleKey} latitude={this.state.lat}  longitude={this.state.lng} data={this.state.shops} fetched={this.state.fetched}/>
           <Shoplist data={this.state.shops} fetched={this.state.fetched}/>
         </div>
       </div>
