@@ -19828,7 +19828,7 @@
 /* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 	
@@ -19839,10 +19839,6 @@
 	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
-	
-	var _map = __webpack_require__(163);
-	
-	var _map2 = _interopRequireDefault(_map);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -19862,34 +19858,33 @@
 	  }
 	
 	  _createClass(Shop, [{
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
 	      console.log("inside shop component");
 	
 	      return _react2.default.createElement(
-	        'div',
+	        "div",
 	        null,
 	        _react2.default.createElement(
-	          'ul',
+	          "ul",
 	          null,
 	          _react2.default.createElement(
-	            'li',
+	            "li",
 	            null,
 	            this.props.name
 	          ),
 	          _react2.default.createElement(
-	            'li',
+	            "li",
 	            null,
 	            this.props.address
 	          ),
 	          _react2.default.createElement(
-	            'li',
+	            "li",
 	            null,
-	            'Open: ',
+	            "Open: ",
 	            JSON.stringify(this.props.isOpen)
 	          )
-	        ),
-	        _react2.default.createElement(_map2.default, null)
+	        )
 	      );
 	    }
 	  }]);
@@ -19919,6 +19914,10 @@
 	
 	var _googleMapReact2 = _interopRequireDefault(_googleMapReact);
 	
+	var _mapMarker = __webpack_require__(270);
+	
+	var _mapMarker2 = _interopRequireDefault(_mapMarker);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -19937,7 +19936,7 @@
 	
 	    _this.state = {
 	      center: { lat: 34.0157219, lng: -118.4966245 },
-	      zoom: 9
+	      zoom: 13
 	    };
 	    return _this;
 	  }
@@ -19955,7 +19954,8 @@
 	          'div',
 	          { style: { border: '1px solid red' }, className: 'hello', lat: 34.0157219, lng: -118.4966245 },
 	          'MyPlace'
-	        )
+	        ),
+	        _react2.default.createElement(_mapMarker2.default, { lat: 34.032773, lng: -118.452798 })
 	      );
 	    }
 	  }]);
@@ -24966,6 +24966,76 @@
 	
 	module.exports = isNumber;
 
+
+/***/ },
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */,
+/* 263 */,
+/* 264 */,
+/* 265 */,
+/* 266 */,
+/* 267 */,
+/* 268 */,
+/* 269 */,
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Mapmarker = (function (_React$Component) {
+	  _inherits(Mapmarker, _React$Component);
+	
+	  function Mapmarker() {
+	    _classCallCheck(this, Mapmarker);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Mapmarker).apply(this, arguments));
+	  }
+	
+	  _createClass(Mapmarker, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        'TestING'
+	      );
+	    }
+	  }]);
+	
+	  return Mapmarker;
+	})(_react2.default.Component);
+	
+	exports.default = Mapmarker;
 
 /***/ }
 /******/ ]);
