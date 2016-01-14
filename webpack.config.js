@@ -4,11 +4,11 @@ var webpack = require('webpack');
 module.exports = {
   entry: [
     // 'babel-polyfill',
-    './client/app.js'
+    './client/containers/app.js'
     // 'webpack-dev-server/client?http://localhost:8080'
   ],
   output: {
-      path: __dirname + '/client/components/',
+      path: __dirname + '/client/',
       filename: 'bundle.js'
   },
   debug: true,
