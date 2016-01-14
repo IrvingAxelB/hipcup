@@ -1,11 +1,10 @@
-import React from 'react';
+import React from 'react'
 import Button from 'react-bootstrap/lib/button.js'
-import Shoplist from './shopList.js';
-import Map from './map.js';
+import Shoplist from './shopList.js'
+import Map from './map.js'
 
-class HipcupApp extends React.Component {
-
-  constructor(props){
+class Hipcup extends React.Component {
+  constructor(props) { 
     super(props);
     this.state = {
       lat: '',
@@ -15,7 +14,7 @@ class HipcupApp extends React.Component {
     }
   }
 
-  fetchShops(){
+  fetchShops() {
     $.ajax({
       url: '/google',
       method: 'POST',
@@ -34,8 +33,7 @@ class HipcupApp extends React.Component {
     });
   }
 
-  render(){
-
+  render() {
     return (
       <div>
         <div className="coffeeFinderButtonWrapper">
@@ -50,4 +48,4 @@ class HipcupApp extends React.Component {
   }
 }
 
-export default HipcupApp;
+export default Hipcup;

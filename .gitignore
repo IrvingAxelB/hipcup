@@ -1,5 +1,7 @@
 #Dependency Directories
 node_modules/
+client/bundle.js
+client/bundle.js.map
 
 # API keys
 config.js
