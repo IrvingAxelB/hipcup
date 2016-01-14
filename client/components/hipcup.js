@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/lib/button.js'
 import Shoplist from './shopList.js';
 import Map from './map.js';
 
-class HipcupApp extends React.Component {
+class Hipcup extends React.Component {
 
   constructor(props){
     super(props);
@@ -50,4 +50,4 @@ class HipcupApp extends React.Component {
   }
 }
 
-export default HipcupApp;
+export default Hipcup;
