@@ -1,11 +1,11 @@
-import React from 'react';
-import Shop from './shop.js';
+import React from 'react'
+import Shop from './shop.js'
 
 class ShopList extends React.Component {
-  render(){
+  render() {
     let shops = <div></div>
 
-    if(this.props.fetched){
+    if(this.props.fetched) {
       shops = this.props.data.map((store, ind) => {
         return (<Shop name={store.name} address={store.formatted_address} isOpen={store.opening_hours.open_now} key={ind}/>)
       }).filter(val => val !== undefined);

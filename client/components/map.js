@@ -1,17 +1,16 @@
-import React from 'react';
-import GoogleMap from 'google-map-react';
-import Mapmarker from './mapMarker.js';
+import React from 'react'
+import GoogleMap from 'google-map-react'
+import Mapmarker from './mapMarker.js'
 
 class Map extends React.Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       center: {lat: 34.0157219, lng: -118.4966245},
     }
   };
 
-  render(){
+  render() {
     let markers = <div lat={34.0157219} lng={-118.4966245}></div>;
     let map = <GoogleMap
      bootstrapURLKeys={{key: this.props.googleKey}}
@@ -20,7 +19,7 @@ class Map extends React.Component {
       {markers}
    </GoogleMap>
 
-    if(this.props.fetched){
+    if(this.props.fetched) {
       markers = this.props.data.map((store, ind) => {
         return (<Mapmarker lat={store.geometry.location.lat} lng={store.geometry.location.lng} key={ind} />)
       }).filter(val => val !== undefined);

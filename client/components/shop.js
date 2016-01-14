@@ -1,9 +1,8 @@
-import React from 'react';
+import React from 'react'
 
 class Shop extends React.Component {
-  render(){
-
-    return(
+  render() {
+    return (
       <div>
         <ul className="store">
           <li><span className="storeName">{this.props.name}</span></li>
