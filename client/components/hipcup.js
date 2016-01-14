@@ -22,10 +22,12 @@ class Hipcup extends React.Component {
       dataType: 'json',
       cache: false,
       success: function(data){
-        this.setState({shops: data.stores.results});
-        this.setState({lat: data.lat});
-        this.setState({lng: data.lng});
-        this.setState({fetched: true});
+        this.setState({
+          shops: data.stores.results,
+          lat: data.lat,
+          lng: data.lng,
+          fetched: true
+        });
       }.bind(this),
       error:function(xhr, status, err){
         console.error(err.toString());
