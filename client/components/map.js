@@ -22,9 +22,7 @@ class Map extends React.Component {
 
     if(this.props.fetched){
       markers = this.props.data.map((store, ind) => {
-        if(store.name !== 'Starbucks' && store.name !== 'Peet\'s Coffee & Tea' && store.name !== 'The Coffee Bean & Tea Leaf'){
-          return (<Mapmarker lat={store.geometry.location.lat} lng={store.geometry.location.lng} key={ind} />)
-        }
+        return (<Mapmarker lat={store.geometry.location.lat} lng={store.geometry.location.lng} key={ind} />)
       }).filter(val => val !== undefined);
 
       map = <GoogleMap
