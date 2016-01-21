@@ -3,9 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: [
-    // 'babel-polyfill',
-    './client/containers/app.js'
-    // 'webpack-dev-server/client?http://localhost:8080'
+    './index'
   ],
   output: {
       path: __dirname + '/client/',
@@ -19,7 +17,7 @@ module.exports = {
         test: /\.js$/,
         include: path.join(__dirname, 'client'),
         exclude: /(node_modules)/,
-        loader: 'babel-loader',
+        loader: ['babel-loader'],
         query: {
           presets: ['es2015', 'react']
         }
