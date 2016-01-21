@@ -1,7 +1,7 @@
 import React from 'react'
 import Shop from './shop.js'
 
-class ShopList extends React.Component {
+class ShopsList extends React.Component {
   render() {
     let shops = <div></div>
 
@@ -12,8 +12,8 @@ class ShopList extends React.Component {
     }
 
     return (
-      <div className='results'>
-        <h2 className='listResultsTitle'>Hip Coffee Places</h2>
+      <div>
+        <p>renders coffee shops inside shop component</p>
         <div>
           {shops}
         </div>
@@ -22,4 +22,4 @@ class ShopList extends React.Component {
   }
 }
 
-export default ShopList;
+export default ShopsList;
