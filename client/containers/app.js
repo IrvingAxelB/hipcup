@@ -5,6 +5,7 @@ import { Router, Route, IndexRoute,IndexLink } from 'react-router'
 import { createHistory, useBasename } from 'history'
 import Header from '../components/header'
 import Footer from '../components/footer'
+import ShopsListContainer from './shopsListContainer'
 
 class Main extends React.Component {
 
@@ -24,6 +25,7 @@ const history = useBasename(createHistory)({
 render((
   <Router history={history}>
     <Route path="/" component={Main}>
+      <IndexRoute component={ShopsListContainer} />
     </Route>
   </Router>
 ), document.getElementById('app'))
