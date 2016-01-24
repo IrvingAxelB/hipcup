@@ -1,18 +1,12 @@
 import React from 'react'
-import { render } from 'react-dom'
-import { Router, Route, IndexRoute, IndexLink } from 'react-router'
-import { createHistory, useBasename } from 'history'
+import { Route } from 'react-router'
 import { App } from './client/containers/app.js'
-import { ShopsListContainer } from './client/containers/shopsListContainer.js'
 
-const history = useBasename(createHistory)({
-  basename: '/'
-})
-
-export default (
-  <Router history={history}>
+export default function getRoutes(){
+  return (
     <Route path="/" component={App}>
-      <IndexRoute component={ShopsListContainer} />
+      <Route path='/app' component={App} />
     </Route>
-  </Router>
-)
+  )  
+  
+}

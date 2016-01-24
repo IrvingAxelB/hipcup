@@ -1,5 +1,8 @@
-import example from './example';
+import { combineReducers } from 'redux'
+import { routeReducer } from 'redux-simple-router'
 
-export {
-  example
-};
+const rootReducer = combineReducers({
+  routing: routeReducer
+})
+
+export default rootReducer

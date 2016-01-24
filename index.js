@@ -1,12 +1,22 @@
 import 'babel-polyfill'
 import React from 'react'
 import { render } from 'react-dom'
-import App from './client/containers/app.js'
-import configureStore from './store/configureStore'
+import Root from './client/containers/Root'
+import configureStore from './client/store/configStore'
+import createHistory from 'history/lib/createHashHistory'
+import { syncHistory } from 'redux-simple-router'
 
 const store = configureStore()
+const history = createHistory()
+// console.log("history", history, "store", store);
+// console.log("syncHistory", syncHistory(history));
+const reduxRouterMiddleware = syncHistory(history);
+console.log("reduxRouterMiddleware:", reduxRouterMiddleware);
+reduxRouterMiddleware.listenForReplays(store);
+
+// console.log('syncReduxAndRouter', syncReduxAndRouter, typeof syncReduxAndRouter);
 
 render(
-  <App store={store} />,
-  document.getElementById('root');
+  <Root store={store} history={history}/>,
+  document.getElementById('root')
 )
